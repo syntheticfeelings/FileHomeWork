@@ -4,13 +4,20 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        final String PATH = "/home/antn/apps/jdk1.8.0_171/";
         PrintPath printPath = new PrintPath();
         String jdkVersion="jdk1.8.0_171";
-        printPath.printFnames("/home/antn/apps/jdk1.8.0_171/");
-        System.out.println("The JDK version on this computer is : " + jdkVersion + "." +
-                "\nCount of java files in this directory is : " + printPath.count + ".");
 
+
+
+        printPath.printFnames(PATH);
+
+
+        System.out.println("JDK version on this computer is : " + jdkVersion + "." +
+                "\nCount of java files in this directory is : " + printPath.count + ".");
+        System.out.println();
+        System.out.println("The annotation @FunctionalInterface is find in files :");
+        printPath.checkAnnotations(PATH);
 
 
     }
