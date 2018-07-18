@@ -10,7 +10,7 @@ public class PrintPath {
 
     public int count=0;
 
-    public void printFnames(String sDir){
+    public void printFileNames(String sDir){
         File[] faFiles = new File(sDir).listFiles();
         for(File file: faFiles){
             if(file.isFile()){
@@ -19,7 +19,7 @@ public class PrintPath {
                 }
             }
             if(file.isDirectory()){
-                printFnames(file.getAbsolutePath());
+                printFileNames(file.getAbsolutePath());
             }
         }
     }

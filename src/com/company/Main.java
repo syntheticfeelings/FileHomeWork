@@ -10,7 +10,7 @@ public class Main {
 
 
 
-        printPath.printFnames(PATH);
+        printPath.printFileNames(PATH);
 
 
         System.out.println("JDK version on this computer is : " + jdkVersion + "." +
