@@ -8,31 +8,31 @@ import java.io.IOException;
 
 public class PrintPath {
 
-    public int count=0;
+    public int count = 0;
 
-    public void printFileNames(String sDir){
+    public void printFileNames(String sDir) {
         File[] faFiles = new File(sDir).listFiles();
-        for(File file: faFiles){
-            if(file.isFile()){
-                if(file.getAbsolutePath().contains(".jar")){
+        for (File file : faFiles) {
+            if (file.isFile()) {
+                if (file.getAbsolutePath().contains(".java")) {
                     count++;
                 }
             }
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 printFileNames(file.getAbsolutePath());
             }
         }
     }
 
-    public void checkAnnotations(String sDir){
+    public void checkAnnotations(String sDir) {
         File[] faFiles = new File(sDir).listFiles();
-        for(File file: faFiles){
-            if(file.isFile()){
-                if(file.getAbsolutePath().contains(".jar")){
+        for (File file : faFiles) {
+            if (file.isFile()) {
+                if (file.getAbsolutePath().contains(".java")) {
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String currentLine;
                         while ((currentLine = br.readLine()) != null) {
-                            if(currentLine.contains("@FunctionalInterface")) {
+                            if (currentLine.contains("@FunctionalInterface")) {
                                 System.out.println(file.getAbsolutePath());
                                 break;
                             }
@@ -42,7 +42,7 @@ public class PrintPath {
                     }
                 }
             }
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 checkAnnotations(file.getAbsolutePath());
             }
         }
